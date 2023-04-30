@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Color switcher</title>
-    <link rel="stylesheet" href="css/common.css" />
-  </head>
-  <body>
-    <p><a href="index.html">Go back</a></p>
 
-    <button type="button" data-start>Start</button>
-    <button type="button" data-stop>Stop</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color switcher</title>
+  <link rel="stylesheet" href="css/common.css" />
+</head>
 
-    <script src="js/01-color-switcher.js" type="module"></script>
-  </body>
+<body>
+  <p><a href="index.html">Go back</a></p>
+
+  <style>
+    .wrapper {
+      display: flex;
+      gap: 20px;
+      margin: 20px;
+
+    }
+
+    .btn {
+      font-size: 16px;
+      width: 140px;
+      height: 50px;
+
+      color: #000;
+      background-color: #ceeeee;
+      border-style: none;
+      font-weight: bold;
+      border-radius: 30px;
+
+    }
+
+    .btn:hover {
+      background: #5cbf2a
+    }
+  </style>
+
+
+  <div class="wrapper">
+    <button class="btn" type="button" data-start>Start</button>
+    <button class="btn" type="button" data-stop>Stop</button>
+  </div>
+
+  <script src="js/01-color-switcher.js" type="module"></script>
+</body>
+
 </html>

@@ -1,36 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Countdown timer</title>
-    <link rel="stylesheet" href="css/common.css" />
-  </head>
-  <body>
-    <p><a href="index.html">Go back</a></p>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Countdown timer</title>
+  <link rel="stylesheet" href="css/common.css" />
+</head>
+
+<body>
+  <p><a href="index.html">Go back</a></p>
+
+  <style>
+    #datetime-picker {
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+
+
+
+    .btn {
+      background-color: #ceeeee;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 5px 20px;
+      cursor: pointer;
+      border-style: none;
+      letter-spacing: 1px;
+
+    }
+
+    .btn:hover {
+      background-color: yellowgreen;
+    }
+
+    .btn-notActiv {
+      opacity: 0.5;
+    }
+
+
+    .date-wrapper {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+
+    }
+
+    .timer {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #ceeeee;
+      width: 80px;
+      padding: 10px;
+    }
+
+    .value {
+      font-size: 35px;
+      font-weight: 500;
+    }
+
+    .alert {
+      background-color: #f2dede;
+    }
+  </style>
+
+  <div class="date-wrapper">
     <input type="text" id="datetime-picker" />
-    <button type="button" data-start>Start</button>
+    <button class="btn btn-notActiv " type="button" data-start>Start</button>
+  </div>
 
-    <div class="timer">
-      <div class="field">
-        <span class="value" data-days>00</span>
-        <span class="label">Days</span>
-      </div>
-      <div class="field">
-        <span class="value" data-hours>00</span>
-        <span class="label">Hours</span>
-      </div>
-      <div class="field">
-        <span class="value" data-minutes>00</span>
-        <span class="label">Minutes</span>
-      </div>
-      <div class="field">
-        <span class="value" data-seconds>00</span>
-        <span class="label">Seconds</span>
-      </div>
+  <div class="timer">
+    <div class="field">
+      <span class="value" data-days>00</span>
+      <span class="label">Days</span>
     </div>
+    <div class="field">
+      <span class="value" data-hours>00</span>
+      <span class="label">Hours</span>
+    </div>
+    <div class="field">
+      <span class="value" data-minutes>00</span>
+      <span class="label">Minutes</span>
+    </div>
+    <div class="field">
+      <span class="value" data-seconds>00</span>
+      <span class="label">Seconds</span>
+    </div>
+  </div>
 
-    <script src="js/02-timer.js" type="module"></script>
-  </body>
+
+
+
+  <script src="js/02-timer.js" type="module"></script>
+
+</body>
+
 </html>
