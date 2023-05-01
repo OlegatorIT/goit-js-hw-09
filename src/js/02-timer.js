@@ -12,21 +12,22 @@ const options = {
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
       Notiflix.Notify.failure('Please choose a date in the future');
-      if (idInterval !== null) {
-        return startValue();
-      }
-      if (btnStart.classList.contains('btn-notActiv')) {
+
+      if (btnStart.classList.contains('notActiv')) {
         return;
       }
-      btnStart.classList.add('btn-notActiv');
+      btnStart.classList.add('notActiv');
     } else {
-      btnStart.classList.remove('btn-notActiv');
+      btnStart.classList.remove('notActiv');
+      inputStopWath.classList.add('notActiv');
+      stopWatch._input.disabled = true;
     }
   },
 };
 
 const stopWatch = flatpickr('#datetime-picker', options);
 
+const inputStopWath = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('.btn');
 const valueDays = document.querySelector('[data-days]');
 const valueHours = document.querySelector('[data-hours]');
@@ -36,7 +37,7 @@ const valueSeconds = document.querySelector('[data-seconds]');
 btnStart.addEventListener('click', startTimer);
 
 function startTimer() {
-  if (btnStart.classList.contains('btn-notActiv')) {
+  if (btnStart.classList.contains('notActiv')) {
     return;
   }
 
@@ -50,11 +51,13 @@ function startTimer() {
     ${(valueDays.textContent = addLeadingZero(days))}`;
     if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
       clearInterval(idInterval);
+      inputStopWath.classList.remove('notActiv');
+      stopWatch._input.disabled = false;
       console.log('Finish');
     }
   }, 1000);
 
-  btnStart.classList.add('btn-notActiv');
+  btnStart.classList.add('notActiv');
 }
 
 function convertMs(ms) {
@@ -78,12 +81,4 @@ function convertMs(ms) {
 
 function addLeadingZero(value) {
   return value.toString().padStart(2, '0');
-}
-
-function startValue() {
-  clearInterval(idInterval);
-  valueSeconds.textContent = '00';
-  valueMinutes.textContent = '00';
-  valueHours.textContent = '00';
-  valueDays.textContent = '00';
 }
