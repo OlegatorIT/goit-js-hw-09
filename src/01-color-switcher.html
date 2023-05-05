@@ -32,15 +32,21 @@
 
     }
 
-    .btn:hover {
+
+    .btn:hover:not(.no-hover) {
       background: #5cbf2a
+    }
+
+    .notActiv {
+      opacity: 0.5;
+
     }
   </style>
 
 
   <div class="wrapper">
     <button class="btn" type="button" data-start>Start</button>
-    <button class="btn" type="button" data-stop>Stop</button>
+    <button class="btn notActiv no-hover  " disabled type="button" data-stop>Stop</button>
   </div>
 
   <script src="js/01-color-switcher.js" type="module"></script>

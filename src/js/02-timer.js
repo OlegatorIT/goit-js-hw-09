@@ -45,11 +45,12 @@ function startTimer() {
     const currentValue =
       stopWatch.selectedDates[0].getTime() - new Date().getTime();
     const { days, hours, minutes, seconds } = convertMs(currentValue);
-    `${(valueSeconds.textContent = addLeadingZero(seconds))} 
-     ${(valueMinutes.textContent = addLeadingZero(minutes))} 
-    ${(valueHours.textContent = addLeadingZero(hours))} 
+    `${(valueSeconds.textContent = addLeadingZero(seconds))}
+     ${(valueMinutes.textContent = addLeadingZero(minutes))}
+    ${(valueHours.textContent = addLeadingZero(hours))}
     ${(valueDays.textContent = addLeadingZero(days))}`;
-    if (days === 0 && hours === 0 && minutes === 0 && seconds === 0) {
+
+    if (currentValue < 1000) {
       clearInterval(idInterval);
       inputStopWath.classList.remove('notActiv');
       stopWatch._input.disabled = false;

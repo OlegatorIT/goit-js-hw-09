@@ -11,7 +11,10 @@ formEl.addEventListener('submit', e => {
 
 function createPromise(position, delay) {
   const step = Number(formEl.elements.step.value);
-  delay = Number(formEl.elements.delay.value) + counter * step;
+  delay =
+    counter === 1
+      ? Number(formEl.elements.delay.value)
+      : Number(formEl.elements.delay.value) + (counter - 1) * step;
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const shouldResolve = Math.random() > 0.3;
@@ -21,6 +24,8 @@ function createPromise(position, delay) {
         reject({ position, delay });
       }
     }, delay);
+
+    console.log(delay);
     counter++;
   });
 }

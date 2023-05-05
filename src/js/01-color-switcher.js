@@ -6,6 +6,7 @@ function getRandomHexColor() {
 
 const btnStart = document.querySelector('[data-start]');
 const btnStop = document.querySelector('[data-stop]');
+
 let btnStatus = false;
 let timerId = null;
 
@@ -22,11 +23,21 @@ function onStartBtn() {
   }, 1000);
 
   btnStatus = true;
-
-  console.log(btnStatus);
+  btnStart.classList.toggle('notActiv');
+  btnStart.classList.toggle('no-hover');
+  btnStart.setAttribute('disabled', '');
+  btnStop.removeAttribute('disabled');
+  btnStop.classList.toggle('notActiv');
+  btnStop.classList.toggle('no-hover');
 }
 
 function onStopBtn() {
   clearInterval(timerId);
   btnStatus = false;
+  btnStop.classList.toggle('notActiv');
+  btnStop.classList.toggle('no-hover');
+  btnStop.setAttribute('disabled', '');
+  btnStart.removeAttribute('disabled');
+  btnStart.classList.toggle('notActiv');
+  btnStart.classList.toggle('no-hover');
 }
